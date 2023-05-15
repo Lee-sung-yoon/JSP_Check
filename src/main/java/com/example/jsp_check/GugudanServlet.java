@@ -16,13 +16,26 @@ public class GugudanServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8"); // 완성되는 html의 인코딩을 utf-8로 하겠다.
         resp.setContentType("text/html; charset-utf-8"); // 브라우저에게 우리가 만든 결과물이 utf-8이라고 알리는 의미
 
-        int dan = Integer.parseInt(req.getParameter("dan")); // 문장으로 인식되는 변수를 숫자로 변형
-        int limit = Integer.parseInt(req.getParameter("limit"));;
+//        Rq rq = new Rq(req, resp);
+//
+//        int dan = rq.getIntParam("dan", 9); // 문장으로 인식되는 변수를 숫자로 변형
+//        int limit = rq.getIntParam("limit", 9);
+//
+//        rq.appendBody(String.format("<h1>%d단</h1>\n", dan));
+//
+//        for (int i = 1; i <= limit; i++) {
+//            rq.appendBody(String.format("<div>%d * %d = %d </div>\n", dan, i, dan * i));
+//        }
 
-        resp.getWriter().append(String.format("<h1>%d단</h1>\n", dan));
+        Rq rq = new Rq(req, resp);
+
+        int dan = rq.getIntParam("dan", 9);
+        int limit = rq.getIntParam("limit", 9);
+
+        rq.appendBody(String.format("<h1>%d단</h1>\n", dan));
 
         for (int i = 1; i <= limit; i++) {
-            resp.getWriter().append(String.format("<div>%d * %d = %d </div>\n", dan, i, dan * i));
+            rq.appendBody(String.format("<div>%d * %d = %d </div>\n", dan, i, dan * i));
         }
     }
 }
