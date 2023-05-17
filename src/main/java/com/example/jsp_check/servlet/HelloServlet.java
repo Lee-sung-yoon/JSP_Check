@@ -1,4 +1,4 @@
-package com.example.jsp_check;
+package com.example.jsp_check.servlet;
 
 import java.io.*;
 

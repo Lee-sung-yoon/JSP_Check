@@ -1,5 +1,6 @@
-package com.example.jsp_check;
+package com.example.jsp_check.servlet;
 
+import com.example.jsp_check.Rq;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
